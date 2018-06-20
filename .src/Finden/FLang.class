@@ -1,0 +1,31 @@
+' Gambas class file
+
+Public Sub Langbox_Click()
+
+End
+
+Public Sub Form_Open()
+
+  If CLanguar.CorendLang == CLanguar.DE Then
+    Print Langbox.Text = "Deutsch"
+
+  Else If CLanguar.CorendLang == CLanguar.Eng Then
+
+    Print Langbox.Text = "Englisch"
+
+  Else If CLanguar.CorendLang == CLanguar.JP Then
+
+    Print Langbox.Text = "Japanisch"
+
+  Endif
+
+End
+
+Public Sub Anwenden_Click()
+
+  FFind.Close()
+  FOpenfirst.loadLang(Langbox.Index)
+  FMain.Aktualisieren_Click()
+  Me.Close()
+
+End

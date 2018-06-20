@@ -1,0 +1,20 @@
+# Gambas Form File 3.0
+
+{ Form Form
+  MoveScaled(0,0,64,19)
+  Icon = Picture["bulbasaur.gif"]
+  { Button1 Button
+    MoveScaled(24,11,16,5)
+    Text = ("Start")
+  }
+  { TextLabel1 TextLabel
+    MoveScaled(1,1,62,7)
+    Text = ("Es müssen noch die gifs Bilder installiert werden wenn sie Start drücken werden sie heruntergeladen und installiert")
+  }
+  { Spinner1 Spinner
+    MoveScaled(28,10,8,8)
+  }
+  { ProgressBar1 ProgressBar
+    MoveScaled(1,6,62,4)
+  }
+}

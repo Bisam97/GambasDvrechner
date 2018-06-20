@@ -1,0 +1,52 @@
+# Gambas Form File 3.0
+
+{ Form Form
+  MoveScaled(0,0,64,36)
+  { TabStrip1 TabStrip
+    MoveScaled(0,0,64,30)
+    Count = 2
+    Index = 0
+    Text = ("Info")
+    { TextLabel1 TextLabel
+      MoveScaled(12.125,8.25,39,9)
+      Font = Font["10"]
+      Text = ("Bitte verwandeln sie ihr Rotom zurück damit eine Problemlose Berechnug möglch ist Danke ;-) ")
+    }
+    Index = 1
+    Text = ("Rückverwandlung")
+    { Label1 Label
+      MoveScaled(28,0,35,6)
+      Text = ("Halten sie die Maus über die Edition")
+    }
+    { Label2 Label
+      MoveScaled(1,1,24,4)
+      ToolTip = ("Galaktik-Gebäude in Ewigenau per ?-Öffner (Platin Edition only)")
+      Text = ("D|P|PT")
+    }
+    { Label3 Label
+      MoveScaled(1,6,24,4)
+      ToolTip = ("In HGSS befindet sich der Raum von Rotom in der Silph Co")
+      Text = ("SS|HG")
+    }
+    { Label4 Label
+      MoveScaled(1,11,24,4)
+      ToolTip = ("In SWS2W2 ist der Raum im Kaufhaus 9. ")
+      Text = ("S|S2|W|W2")
+    }
+    { Label5 Label
+      MoveScaled(1,16,24,4)
+      ToolTip = ("In XY ist der Raum im Professor Platans Labor im 1S. ")
+      Text = ("X|Y")
+    }
+    { Label6 Label
+      MoveScaled(1,21,24,4)
+      ToolTip = ("In ΩRαS ist der Raum im Professor Birks Labor an den rechts liegenden Kartons, in der Nähe des Eingangs. ")
+      Text = ("OR|AS")
+    }
+    Index = 0
+  }
+  { Button1 Button
+    MoveScaled(24,31,16,4)
+    Text = ("OK")
+  }
+}

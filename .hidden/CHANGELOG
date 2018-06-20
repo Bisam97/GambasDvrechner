@@ -1,0 +1,114 @@
+* Fri Jan 05 2018 Bisam97 <bisam97@bisam97.de> 2.3.1
+
+* Sat Nov 25 2017 Bisam97 <bisam97@bisam97.de> 2.3.1
+- Update to Gen 7.2
+- Dynamisches Holen der Daten
+
+* Fri Nov 24 2017 Bisam97 <bisam97@bisam97.de> 2.2.1
+
+* Fri Nov 24 2017 Bisam97 <bisam97@bisam97.de> 2.2.1
+
+* Tue Jul 18 2017 Bisam97 <bisam97@bisam97.de> 2.2.1
+
+* Sun Dec 11 2016 Bisam97 <bisam97@bisam97.de> 2.2.1
+- Bugfixes
+
+* Sun Dec 11 2016 Bisam97 <bisam97@bisam97.de> 2.2.0
+- +Neue Download URL Die immer gleich bleibt
+- +Optimirung der Berechnung der Dateigröße der .gif zusatz Dateien
+- Bugfixes
+
+* Mon Nov 28 2016 Bisam97 <bisam97@bisam97.de> 2.1.1
+- Bugfixes
+
+* Mon Nov 28 2016 Bisam97 <bisam97@bisam97.de> 2.0.2
+- + Hinzufügen einer Datenbank für die Basiswerte und Namen
+- + Hinzufügen einer einfachen Update Rotine
+
+* Fri Apr 29 2016 Bisam97 <bisam97@bisam97.de> 2.0.2
+
+* Sun Apr 24 2016 Bisam97 <bisam97@bisam97.de> 2.0.1
+- Hinzufügen von Hoopa und Vulcanion
+- Bugfixes
+
+* Tue Mar 29 2016 Bisam97 <bisam97@bisam97.de> 2.0.0
+
+* Tue Mar 29 2016 Bisam97 <bisam97@bisam97.de> 2.0.0
+- +Hinzufügen einer Einfachen Oberfläche beim 1.Start
+- Bugfixes
+- ### Bug das bei Glurak und Mewto nicht die Auswahl zwischen X und Y Mega Steht ###
+
+* Sat Jan 09 2016 Bisam97 <bisam97@bisam97.de> 1.7.0
+
+* Sat Jan 09 2016 Bisam97 <bisam97@bisam97.de> 1.7.0
+- +Pokemon namens liste in den Spachen Deutsch Englisch Japanisch verfügbar
+- Bugfixes
+
+* Sat Jan 09 2016 Bisam97 <bisam97@bisam97.de> 1.5.1
+
+* Thu May 28 2015 Bisam97 <tobikimeister@gmail.com> 1.5.1
+
+* Thu May 28 2015 Bisam97 <tobikimeister@gmail.com> 1.5.1
+- Bugfixes
+
+* Mon May 25 2015 Bisam97 <tobikimeister@gmail.com> 1.5.0
+- Aktualisiren der Mega Pokemon und auslagern dieser in eine liste
+- Gif Archiv ist jetzt im Linux Standart vormart von linux (.tar.gz)
+- Löschen von Unnötigen (unbenutzen) alten Code
+
+* Mon Apr 13 2015 Bisam97 <tobikimeister@gmail.com> 1.0.1
+- +Schellsuchleiste  wurde hinzugefügt
+- +bugfixes
+
+* Tue Mar 17 2015 Bisam97 <tobikimeister@gmail.com> 0.9.0
+- + Es ist nun Möglich die S L XL görße von Pumpdjinn und Irrbis aus zu Wählen
+
+* Tue Dec 23 2014 Bisam97 <tobikimeister@gmail.com> 0.8.0
+- +Intervallverfaren ist nun Bugfrei
+- +hinzufügen des clear Knopfes (löscht den inhalt von Status, Base, EV, DV)
+- ##--Es ist noch nicht möglich die S L XL görße von Pumpdjinn und Irrbis aus zu Wählen --##
+
+* Thu Nov 06 2014 Bisam97 <tobikimeister@gmail.com> 0.7.1
+-löschen des gifs.zip nach entpackn
+
+* Thu Nov 06 2014 Bisam97 <tobikimeister@gmail.com> 0.7.1
+-automatisches schliesen der Konsole nach beendigung der entpackung der zip datei
+
+* Thu Nov 06 2014 Bisam97 <tobikimeister@gmail.com> 0.7.0
+- + Einfügen einer konsole um mögliche komplikationen mit nicht lx GUI laufenden rechnern zu verhindern
+-Bugfixe
+- ##--Es ist noch nicht möglich die S L XL görße von Pumpdjinn und Irrbis aus zu Wählen --##
+
+* Mon Oct 06 2014 Bisam97 <tobikimeister@gmail.com> 0.6.5
+- +verschönern der GUI
+
+* Mon Oct 06 2014 Bisam97 <tobikimeister@gmail.com> 0.6.0
+- +ändern der gifs Paths
+
+* Sun Oct 05 2014 Bisam97 <tobikimeister@gmail.com> 0.6.0
+- + auslegen der gis daten auf dropbox (schnellere installation weil weniger Dateien vorhanden)
+- + beim start automtisches prüfn ob gifs vorhanden sind
+- ##--Es ist noch nicht möglich die S L XL görße von Pumpdjinn und Irrbis aus zu Wählen --##
+
+* Thu Sep 11 2014 Bisam97 <tobikimeister@gmail.com> 0.3.0
+-+hinzufügen des Intervall verfarens
+- ##--Es ist noch nicht möglich die S L XL görße von Pumpdjinn und Irrbis aus zu Wählen --##
+
+* Wed Sep 10 2014 Bisam97 <tobikimeister@gmail.com> 0.1.6
+- bugfix wesen sacht ist jetzt richtig beschrieben
+
+* Sat Aug 16 2014 Bisam97 <tobikimeister@gmail.com> 0.1.6
+- +Error fenster
+- ##--Es ist noch nicht möglich die S L XL görße von Pumpdjinn und Irrbis aus zu Wählen --##
+- Wird gleich gemacht
+
+* Sat Aug 09 2014 Bisam97 <tobikimeister@gmail.com> 0.1.0
+-Erstes Erscheinen
+- + hinzufügen der GUI
+- + hinzufügen der Pokemon Gif anzeige
+- + hinzufügen Wesensliste
+- + hinzufügen der Pokemon Base werte
+- + hinzufügen des Mega-Entwiklung Base werte
+- + hinzufügen der DV Formeln
+- ##--Es ist noch nicht möglich die S L XL görße von Pumpdjinn und Irrbis aus zu Wählen --##
+

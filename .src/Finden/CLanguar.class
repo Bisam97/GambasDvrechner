@@ -1,0 +1,7 @@
+' Gambas class file
+
+Static Public CorendLang As Byte
+
+Public Const Eng As Byte = 1
+Public Const DE As Byte = 2
+Public Const JP As Byte = 3

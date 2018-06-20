@@ -1,0 +1,17 @@
+' Gambas class file
+
+Static Public Sub ReadBase() As Integer
+  
+  Dim adder As Integer
+  
+   If FMain.M.Value == True Then
+     adder = 0
+   Else If FMain.S.Value == True Then
+     adder = 6
+   Else If FMain.L.Value == True Then
+     adder = 12
+   Else If FMain.XL.Value == True Then
+     adder = 18
+   Endif
+  Return adder
+End

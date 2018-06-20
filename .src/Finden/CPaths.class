@@ -1,0 +1,3 @@
+' Gambas class file
+
+Static Public Pokelistpath As String

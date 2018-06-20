@@ -1,0 +1,17 @@
+' Gambas class file
+
+Static Public Sub Random() As Integer[]
+  Dim x As Integer
+  Dim EV As New Integer[]
+  x = 6
+  While x > 0 
+  x = x - 1
+  Ev.Add(Int(600 * Rnd(0, 0.250)), x)
+  If x = 0 And If EV[0] + EV[1] + EV[2] + EV[3] + EV[4] + EV[5] < 510 Then
+    x = 6
+    
+  Endif
+  Wend
+  Print EV[0] + EV[1] + EV[2] + EV[3] + EV[4] + EV[5]
+  Return Ev
+End

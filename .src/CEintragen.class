@@ -1,0 +1,70 @@
+' Gambas class file
+
+Static Public Sub eintragen(Pokemon As Integer)
+
+  Dim Base As New Float[]
+
+  Base = CAuslesen.BaseReadData(Pokemon)
+  '  Print Base[1]
+  FMain.BKP.Text = CString(Base[0])
+  FMain.BAng.Text = CString(Base[1])
+  FMain.BDef.Text = CString(Base[2])
+  FMain.BSAng.Text = CString(Base[3])
+  FMain.BSDef.Text = CString(Base[4])
+  FMain.BInit.Text = CString(Base[5])
+
+End
+
+Static Public Sub Loschen()
+
+  FMain.EVKP.Text = 0
+  FMain.EVAng.Text = 0
+  FMain.EVDEF.Text = 0
+  FMain.EVSang.Text = 0
+  FMain.EVSDEF.Text = 0
+  FMain.EVINIT.Text = 0
+
+  FMain.DVKP.Text = ""
+  FMain.DVAng.Text = ""
+  FMain.DVDEF.Text = ""
+  FMain.DVSang.Text = ""
+  FMain.DVSDEF.Text = ""
+  FMain.DVINIT.Text = ""
+
+  FMain.StatKP.Text = 0
+  FMain.StatAng.Text = 0
+  FMain.StatDEF.Text = 0
+  FMain.StatSang.Text = 0
+  FMain.StatSDEF.Text = 0
+  FMain.StatINIT.Text = 0
+
+  FMain.BKP.Text = ""
+  FMain.BAng.Text = ""
+  FMain.BDEF.Text = ""
+  FMain.BSang.Text = ""
+  FMain.BSDEF.Text = ""
+  FMain.BINIT.Text = ""
+
+End
+
+Static Public Sub DVeintragen(DV As Float[])
+
+  FMain.DVANG.Text = CString(CInt(DV[1]))
+  FMain.DVDEF.Text = CString(CInt(DV[2]))
+  FMain.DVSANG.Text = CString(CInt(DV[3]))
+  FMain.DVSDEF.Text = CString(CInt(DV[4]))
+  FMain.DVINIT.Text = CString(CInt(DV[5]))
+  FMain.DVKP.Text = CString(CInt(DV[0]))
+
+End
+
+Static Public Sub IVallDVeintragen(DV_min As Float[], DV_max As Float[])
+
+  FMain.DVANG.Text = CString(CInt(DV_min[1])) & "-" & CString(CInt(DV_max[1]))
+  FMain.DVDEF.Text = CString(CInt(DV_min[2])) & "-" & CString(CInt(DV_max[2]))
+  FMain.DVSANG.Text = CString(CInt(DV_min[3])) & "-" & CString(CInt(DV_max[3]))
+  FMain.DVSDEF.Text = CString(CInt(DV_min[4])) & "-" & CString(CInt(DV_max[4]))
+  FMain.DVINIT.Text = CString(CInt(DV_min[5])) & "-" & CString(CInt(DV_max[5]))
+  FMain.DVKP.Text = CString(CInt(DV_min[0])) & "-" & CString(CInt(DV_max[0]))
+
+End

@@ -1,0 +1,36 @@
+' Gambas class file
+
+Static Public Sub checkPokemonInput(Pokemon As Integer) As String
+
+  Dim returnPokemonName As String
+
+  FMain.PokemonData.MoveTo(Pokemon - 1)
+  returnPokemonName = FMain.PokemonData["Pokemon"]
+
+  Print returnPokemonName
+  LoadPokemonGif(returnPokemonName)
+  Return returnPokemonName
+
+End
+
+Static Sub LoadPokemonGif(Pokemon As String)
+
+  Dim Path As String
+
+  Path = user.home & "/.dv/gifs" &/ LCase(Pokemon) & ".gif"
+  FMain.MovieBox1.Playing = False
+  FMain.MovieBox1.Path = Path
+  FMain.MovieBox1.Playing = True
+
+End
+
+Static Public Sub Pokemontranslate(Pokemon As Integer) As String
+
+  Dim returnPokemonName As String
+
+  FMain.CurrendLang.MoveTo(Pokemon - 1)
+  returnPokemonName = FMain.CurrendLang["Name"]
+  FMain.CurrendLang.MoveFirst
+  Return returnPokemonName
+
+End

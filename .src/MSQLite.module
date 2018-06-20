@@ -1,0 +1,43 @@
+' Gambas module file
+
+Private SQLiteLib As New Connection
+
+Public Sub OpenConation_StartUp()
+
+  SQLiteLib.Close()
+
+  With SQLiteLib
+    .Type = "sqlite3"
+    .Host = "/usr/lib/dv/"
+    .Login = ""
+    .Password = ""
+    .Name = "Pokemon.db"
+
+  End With
+
+  If Exist(User.Home & "/.pokedatabase") Then
+    SQLiteLib.Host = User.Home & "/.pokedatabase/"
+  Endif
+
+  Try SQLiteLib.Open
+  If Error Then Print "Cannot Open Database. Error = "; Error.Text
+
+End
+
+Public Sub Close()
+
+  SQLiteLib.Close()
+
+End
+
+Public Sub Read(Tabel As String, agumente As String) As Result
+
+  Dim tmpRes As Result
+
+  Try tmpRes = SQLiteLib.Find(Tabel, "Nummer > 0", agumente)
+  If Error Then
+    Message.Error("<b>Table " & Tabel & " is not Exist in " & SQLiteLib.Host & SQLiteLib.Name & "</b> <br> <br>Error:" & Error.Text, "OK")
+  Endif
+  Return tmpRes
+
+End

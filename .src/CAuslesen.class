@@ -1,0 +1,52 @@
+' Gambas class file
+
+Static Public Sub BaseReadData(Pokemon As Integer) As Float[]
+
+  Dim Base As New Float[]
+
+  Pokemon = IsBesonderst(Pokemon)
+
+  FMain.PokemonData.MoveTo(Pokemon - 1)
+
+  Base.Add(CFloat(FMain.PokemonData["KP"]))
+  Base.Add(CFloat(FMain.PokemonData["ANG"]))
+  Base.Add(CFloat(FMain.PokemonData["DEF"]))
+  Base.Add(CFloat(FMain.PokemonData["SANG"]))
+  Base.Add(CFloat(FMain.PokemonData["SDEF"]))
+  Base.Add(CFloat(FMain.PokemonData["INIT"]))
+
+  Return Base
+
+End
+
+Static Public Sub IsBesonderst(Pokemon As Integer) As Integer
+
+  ''Irrbis
+  If Pokemon = 710 Then
+    If FMain.S.Value = True Then
+      Return 722
+    Endif
+    If FMain.L.Value = True Then
+      Return 724
+    Endif
+    If FMain.M.Value = True Then
+      Return 723
+    Endif
+  Endif
+
+  ''Pumpdjinn
+  If Pokemon = 711 Then
+    If FMain.S.Value = True Then
+      Return 725
+    Endif
+    If FMain.L.Value = True Then
+      Return 727
+    Endif
+    If FMain.M.Value = True Then
+      Return 726
+    Endif
+  Endif
+
+  Return Pokemon
+
+End

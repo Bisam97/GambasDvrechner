@@ -1,0 +1,245 @@
+# Gambas Form File 3.0
+
+{ Form Form
+  Move(0,0,648,552)
+  #Scaled = False
+  Icon = Picture["bulbasaur.gif"]
+  Resizable = False
+  { Extras Menu
+    Text = ("Extras")
+    { Lang Menu
+      Text = ("Sprache")
+    }
+  }
+  { Separator5 Separator
+    Move(532,7,28,427)
+  }
+  { !MovieBox1 MovieBox
+    Move(7,154,203,161)
+    #Public = True
+  }
+  { !KP Label
+    Move(175,42,28,28)
+    #Public = True
+    Text = ("KP")
+  }
+  { !ANG Label
+    Move(175,110,35,28)
+    #Public = True
+    Text = ("ANG")
+  }
+  { !DEF Label
+    Move(175,179,49,28)
+    #Public = True
+    Text = ("DEF")
+  }
+  { !SDEF Label
+    Move(175,322,35,28)
+    #Public = True
+    Text = ("SDEF")
+  }
+  { !INIT Label
+    Move(175,392,28,28)
+    #Public = True
+    Text = ("INIT")
+  }
+  { Separator2 Separator
+    Move(217,1,7,434)
+  }
+  { StatKP ValueBox
+    Move(238,42,70,28)
+  }
+  { StatAng ValueBox
+    Move(238,111,70,28)
+  }
+  { StatDef ValueBox
+    Move(238,180,70,28)
+  }
+  { StatSang ValueBox
+    Move(238,249,70,28)
+  }
+  { StatSDef ValueBox
+    Move(238,318,70,28)
+  }
+  { StatInit ValueBox
+    Move(238,387,70,28)
+  }
+  { Separator3 Separator
+    Move(315,1,14,434)
+  }
+  { EVKP ValueBox EV
+    Name = "EVKP"
+    Move(343,42,70,28)
+  }
+  { EVAng ValueBox EV
+    Name = "EVAng"
+    Move(343,111,70,28)
+  }
+  { EVDEF ValueBox EV
+    Name = "EVDEF"
+    Move(343,180,70,28)
+  }
+  { EVSang ValueBox EV
+    Name = "EVSang"
+    Move(343,249,70,28)
+  }
+  { EVSDEF ValueBox EV
+    Name = "EVSDEF"
+    Move(343,318,70,28)
+  }
+  { EVINIT ValueBox EV
+    Name = "EVINIT"
+    Move(343,387,70,28)
+  }
+  { Separator4 Separator
+    Move(427,0,14,434)
+  }
+  { Separator1 Separator
+    Move(168,22,462,14)
+    Ignore = True
+  }
+  { Startuswerte Label
+    Move(245,1,49,28)
+    Ignore = True
+    Text = ("Status")
+  }
+  { EV Label
+    Move(350,1,21,28)
+    Ignore = True
+    Text = ("EV")
+  }
+  { DV Label
+    Move(448,1,21,28)
+    Ignore = True
+    Text = ("DV")
+  }
+  { PokemonNummber ValueBox
+    Move(14,77,70,28)
+  }
+  { Pokemonname TextBox
+    Move(14,119,126,28)
+    Text = ("Missingno.")
+    ReadOnly = True
+  }
+  { TextLabel1 TextLabel
+    Move(14,28,154,42)
+    Text = ("Bitte Pokemon nummer eingeben")
+  }
+  { Berechen Button
+    Move(14,483,112,28)
+    Enabled = False
+    Text = ("Berechnen")
+  }
+  { !Aktualisieren Button
+    Move(14,441,112,28)
+    #Public = True
+    Text = ("Aktualisieren")
+  }
+  { Wesen ComboBox
+    Move(14,350,105,28)
+    List = [("Robust"), ("Solo"), ("Mutig"), ("Hart"), ("Frech"), ("Kühn"), ("Sanft"), ("Locker"), ("Pfiffig"), ("Lasch"), ("Scheu"), ("Hastig"), ("Ernst"), ("Froh"), ("Naiv"), ("Mäßig"), ("Mild"), ("Ruhig"), ("Zaghaft"), ("Hitzig"), ("Still"), ("Zart"), ("Forsch"), ("Sacht"), ("Kauzig ")]
+    Text = ("Wesen")
+  }
+  { Label1 Label
+    Move(28,322,140,28)
+    Text = ("Wesen")
+  }
+  { !SANG Label
+    Move(175,252,42,28)
+    #Public = True
+    Text = ("SANG")
+  }
+  { !Level SpinBox
+    Move(14,406,63,28)
+    #Public = True
+    MinValue = 30
+  }
+  { Base Label
+    Move(560,1,49,28)
+    Text = ("Base")
+  }
+  { !BAng Label
+    Move(567,112,168,28)
+    #Public = True
+  }
+  { !BDef Label
+    Move(567,182,168,28)
+    #Public = True
+  }
+  { !BSAng Label
+    Move(567,245,168,28)
+    #Public = True
+  }
+  { !BSDef Label
+    Move(567,315,168,28)
+    #Public = True
+  }
+  { !BKP Label
+    Move(567,42,168,28)
+    #Public = True
+  }
+  { !BInit Label
+    Move(567,385,168,28)
+    #Public = True
+  }
+  { Check Button
+    Move(497,441,77,28)
+    ToolTip = ("Wenn man sich nicht sicher ist ob mann die EVs Richtig und Gesamt unter 510 verteilt hat")
+    Text = ("Check EV")
+  }
+  { EVRandom Button
+    Move(497,483,77,28)
+    ToolTip = ("ClearDV, EV und Status")
+    Text = ("Clear")
+  }
+  { DVKP TextBox
+    Move(455,42,70,28)
+    ReadOnly = True
+  }
+  { DVANG TextBox
+    Move(455,111,70,28)
+    ReadOnly = True
+  }
+  { DVDEF TextBox
+    Move(455,180,70,28)
+    ReadOnly = True
+  }
+  { DVSANG TextBox
+    Move(455,249,70,28)
+    ReadOnly = True
+  }
+  { DVSDEF TextBox
+    Move(455,318,70,28)
+    ReadOnly = True
+  }
+  { DVINIT TextBox
+    Move(455,387,70,28)
+    ReadOnly = True
+  }
+  { S RadioButton
+    Move(168,441,168,28)
+    Text = ("S")
+  }
+  { M RadioButton
+    Move(168,483,168,28)
+    Text = ("M")
+  }
+  { L RadioButton
+    Move(315,441,168,28)
+    Text = ("L")
+  }
+  { XL RadioButton
+    Move(315,483,168,28)
+    Text = ("XL")
+  }
+  { FindBT Button
+    Move(140,119,28,28)
+    Picture = Picture["icon:/16/find"]
+  }
+  { about Button
+    Move(581,497,63,28)
+    Visible = False
+    Enabled = False
+    Text = ("About")
+  }
+}

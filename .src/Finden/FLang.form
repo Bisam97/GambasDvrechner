@@ -1,0 +1,19 @@
+# Gambas Form File 3.0
+
+{ Form Form
+  MoveScaled(0,0,41,19)
+  { !Langbox ComboBox
+    MoveScaled(7,9,24,4)
+    #Public = True
+    ReadOnly = True
+    List = [("Deutsch"), ("Englisch"), ("Japanisch")]
+  }
+  { Label1 Label
+    MoveScaled(7,3,24,4)
+    Text = ("Pokemon liste Sprache")
+  }
+  { Anwenden Button
+    MoveScaled(11,14,16,4)
+    Text = ("Anwenden")
+  }
+}

@@ -1,0 +1,12 @@
+# Gambas Form File 3.0
+
+{ Form Form
+  MoveScaled(0,0,64,64)
+  { TextLabel1 TextLabel
+    MoveScaled(1,1,61,51)
+  }
+  { closee Button
+    MoveScaled(24,58,16,4)
+    Text = ("Ok")
+  }
+}

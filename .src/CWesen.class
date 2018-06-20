@@ -1,0 +1,145 @@
+' Gambas class file
+
+Static Public Sub WesenCheckSet(Wesenindex As Integer) As Float[]
+
+  Dim Angr As Float
+  Dim Def As Float
+  Dim Sang As Float
+  Dim Sdef As Float
+  Dim Init As Float
+  Dim WesenStat As New Float[]
+
+  Angr = 1
+  Def = 1
+  Sang = 1
+  Sdef = 1
+  Init = 1
+
+  If Wesenindex == 1 Then
+    Angr = 1.1
+    Def = 0.9
+  Else If Wesenindex == 2 Then
+    Angr = 1.1
+    Init = 0.9
+  Else If Wesenindex == 3 Then
+    Angr = 1.1
+    Sang = 0.9
+  Else If Wesenindex == 4 Then
+    Angr = 1.1
+    Sdef = 0.9
+  Else If Wesenindex == 5 Then
+    Def = 1.1
+    Angr = 0.9
+  Else If Wesenindex == 6 Then
+    Print "none"
+
+  Else If Wesenindex == 7 Then
+    Def = 1.1
+    Init = 0.9
+  Else If Wesenindex == 8 Then
+    Def = 1.1
+    Sang = 0.9
+  Else If Wesenindex == 9 Then
+    Def = 1.1
+    Sdef = 0.9
+  Else If Wesenindex == 10 Then
+    Init = 1.1
+    Angr = 0.9
+  Else If Wesenindex == 11 Then
+    Init = 1.1
+    Def = 0.9
+  Else If Wesenindex == 12 Then
+    Print "none"
+
+  Else If Wesenindex == 13 Then
+    Init = 1.1
+    Sang = 0.9
+  Else If Wesenindex == 14 Then
+    Init = 1.1
+    Sdef = 0.9
+  Else If Wesenindex == 15 Then
+    Sang = 1.1
+    Angr = 0.9
+  Else If Wesenindex == 16 Then
+    Sang = 1.1
+    Def = 0.9
+  Else If Wesenindex == 17 Then
+    Sang = 1.1
+    Init = 0.9
+  Else If Wesenindex == 18 Then
+    Print "none"
+
+  Else If Wesenindex == 19 Then
+    Sang = 1.1
+    sDef = 0.9
+  Else If Wesenindex == 20 Then
+    Sdef = 1.1
+    Angr = 0.9
+  Else If Wesenindex == 21 Then
+    Sdef = 1.1
+    Def = 0.9
+  Else If Wesenindex == 22 Then
+    Sdef = 1.1
+    Init = 0.9
+  Else If Wesenindex == 23 Then
+    SDEF = 1.1
+    SANG = 0.9
+
+  Else If Wesenindex == 24 Then
+    Print "none"
+
+  Else If Wesenindex == 0 Then
+    Print "none"
+  Endif
+
+  Print Angr
+  Print Def
+  Print SAng
+  Print Sdef
+  Print Init
+  WesenStat.Add(Angr, 0)
+  WesenStat.Add(Def, 1)
+  WesenStat.Add(Sang, 2)
+  WesenStat.Add(Sdef, 3)
+  WesenStat.Add(Init, 4)
+
+  Return WesenStat
+
+End
+
+Static Public Sub SetStatColor(WesenStat As Float[])
+
+  FMain.ANG.Foreground = Color.Black
+  FMain.DEF.Foreground = Color.Black
+  FMain.SANG.Foreground = Color.Black
+  FMain.SDEF.Foreground = Color.Black
+  FMain.INIT.Foreground = Color.Black
+  FMain.KP.Foreground = Color.Black
+
+  If WesenStat[0] == 1.1 Then
+    FMain.ANG.Foreground = Color.Red
+  Else If WesenStat[0] == 0.9 Then
+    FMain.ANG.Foreground = Color.Blue
+  Endif
+  If WesenStat[1] == 1.1 Then
+    FMain.DEF.Foreground = Color.Red
+  Else If WesenStat[1] == 0.9 Then
+    FMain.DEF.Foreground = Color.Blue
+  Endif
+  If WesenStat[2] == 1.1 Then
+    FMain.SANG.Foreground = Color.Red
+  Else If WesenStat[2] == 0.9 Then
+    FMain.SANG.Foreground = Color.Blue
+  Endif
+  If WesenStat[3] == 1.1 Then
+    FMain.SDEF.Foreground = Color.Red
+  Else If WesenStat[3] == 0.9 Then
+    FMain.SDEF.Foreground = Color.Blue
+  Endif
+  If WesenStat[4] == 1.1 Then
+    FMain.INIT.Foreground = Color.Red
+  Else If WesenStat[4] == 0.9 Then
+    FMain.INIT.Foreground = Color.Blue
+  Endif
+
+End

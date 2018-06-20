@@ -1,0 +1,180 @@
+' Gambas class file
+
+Static Public xxx As File
+Static Private Update As Date
+' Static Public super As
+
+Public Sub _new()
+
+  Spinner1.Hide
+  ProgressBar1.Hide
+
+End
+
+Public Sub Form_Open()
+
+  Dim a As Long
+  Dim s As String
+  Dim sd As New String[]
+
+  loadLang(0)
+  Try Kill User.Home & "/.dv/size"
+  If Exist(User.Home & "/.pokedatabase") Then
+  Else
+
+    Mkdir User.Home & "/.pokedatabase"
+
+  Endif
+
+  If Exist(User.Home & "/.pokedatabase/lastUpdate.dat") Then
+
+    Update = CDate(File.Load(User.Home & "/.pokedatabase/lastUpdate.dat"))
+
+    If DateDiff(Now, Update, gb.Day) <= -10 Then
+      UpdateData()
+    Endif
+
+  Else
+
+    File.Save(User.Home & "/.pokedatabase/lastUpdate.dat", CString(Now))
+    File.Save(User.Home & "/.pokedatabase/Pokemon.db", File.Load("/usr/lib/dv/Pokemon.db"))
+    File.Save(User.Home & "/.pokedatabase/version.dat", File.Load("/usr/lib/dv/version.dat"))
+
+    UpdateData()
+
+  Endif
+
+  If Exist(User.Home & "/.dv/gifs") = True Then
+
+    Print "true"
+    sd = Dir(User.Home & "/.dv/gifs")
+    For Each s In sd
+      s = User.Home & "/.dv/gifs/" & s
+      a += Stat(s).Size
+      
+    Next
+
+    
+
+    If a == CInt(File.Load(User.Home & "/.dv/xsize"))
+      FMain.Show
+      FOpenfirst.Close
+    Endif
+  Else
+    Print "false"
+    Print a
+  Endif
+
+End
+
+Private Sub UpdateData()
+
+  Dim version As Float
+  Dim Quastion As Integer
+
+  Quastion = Message.Question("Soll überprüft werden ob es Aktualisierungen für die Pokemon Basestats Datenbank gibt?\n(Download von bisam97.de)", "Ja", "Nein")
+  If Quastion = 1 Then
+    File.Save(User.Home & "/.pokedatabase/lastUpdate.dat", CString(Now))
+    FConsole.Show()
+    FConsole.eingabe(CString("wget -P /tmp/ http://bisam97.de/PokemonDatabase/version.txt"))
+    'File.Save(User.Home & "/.pokedatabase/version.dat", File.Load("/tmp/version.txt"))
+    Wait 1
+
+    version = CFloat(Val(File.Load(User.Home & "/.pokedatabase/version.dat")))
+    If CFloat(version - CFloat(Val(File.Load("/tmp/version.txt")))) < 0.0 Then
+
+      FConsole.eingabe(CString("wget -P /tmp/ http://bisam97.de/PokemonDatabase/Pokemon.db"))
+      Wait 1
+      File.Save(User.Home & "/.pokedatabase/version.dat", File.Load("/tmp/version.txt"))
+      File.Save(User.Home & "/.pokedatabase/Pokemon.db", File.Load("/tmp/Pokemon.db"))
+      Kill "/tmp/Pokemon.db"
+    Endif
+
+    FConsole.Close()
+    Kill "/tmp/version.txt"
+  Endif
+
+End
+
+Public Sub mkdi()
+
+  Dim x As String
+  Dim Size As Long
+
+  If Exist(User.Home & "/.dv") = False Then
+    Mkdir User.Home & "/.dv"
+  Endif
+  If Exist(User.Home & "/.dv/gifs") = True Then
+    Shell "rm -r " & User.Home & "/.dv/gifs"
+  Endif
+
+  FConsole.Show()
+  FConsole.Hide()
+
+  If Exist(User.Home & "/.dv/gifs.tar.gz") = False Then
+
+    Wait 1
+    x = CString("wget -P" & User.Home & "/.dv/ http://bisam97.de/Pokemongifdata/size")
+    FConsole.eingabe(x)
+    x = ""
+    x = CString("wget -P" & User.Home & "/.dv/ http://bisam97.de/Pokemongifdata/xsize")
+    FConsole.eingabe(x)
+    x = ""
+    x = CString("wget -P" & User.Home & "/.dv/ http://bisam97.de/Pokemongifdata/maxpkm")
+    FConsole.eingabe(x)
+    x = ""
+    x = CString("wget -P" & User.Home & "/.dv/ http://bisam97.de/Pokemongifdata/gifs.tar.gz")
+    FConsole.eingabe(x)
+
+  Endif
+
+  FConsole.eingabe("cd " & User.Home & "/.dv ")
+  x = CString("tar -vxzf gifs.tar.gz > Debug.tar.txt")
+  FConsole.eingabe(x)
+  Wait 1
+
+  If Exist(User.Home & "/.dv/size") Then
+
+    size = CLong(Val(File.Load(User.Home & "/.dv/size")))
+
+    While Not Exist(User.Home & "/.dv/gifs")
+
+      Wait 1
+      If Exist(User.Home & "/.dv/gifs.tar.gz") Then
+        FOpenfirst.TextLabel1.Text = "Downloading from Bisam97.de"
+        ProgressBar1.Value = Int(Stat(User.Home & "/.dv/gifs.tar.gz").Size) / Int(Size)
+
+      Endif
+    Wend
+  Else
+    ProgressBar1.Value = 1.0
+  Endif
+
+End
+
+Static Public Sub loadLang(Lang As Integer)
+
+  If Lang == 0 Then
+    CLanguar.CorendLang = CLanguar.DE
+    '     CPaths.Pokelistpath = "/etc/.Bisam97/PokemonlistGER.data"
+    FMain.CurrendLang = FMain.DELang
+  Else If Lang == 1 Then
+    CLanguar.CorendLang = CLanguar.Eng
+    ' CPaths.Pokelistpath = "/etc/.Bisam97/Pokemonlist.data"
+    FMain.CurrendLang = FMain.ENGLang
+  Else If Lang == 2 Then
+    CLanguar.CorendLang = CLanguar.JP
+    '     CPaths.Pokelistpath = "/etc/.Bisam97/PokemonlistJP.data"
+    FMain.CurrendLang = FMain.JPLang
+  Endif
+
+End
+
+Public Sub Button1_Click()
+
+  Button1.Hide
+  Spinner1.Show
+  ProgressBar1.Show
+  FOpenfirst.mkdi()
+
+End

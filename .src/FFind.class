@@ -1,0 +1,81 @@
+' Gambas class file
+
+Static Public Pokelist As New String[]
+Static Private savelist As New String[]
+
+Public Sub Form_Open()
+
+  Me.X = FMain.X + FMain.FindBT.X + FMain.FindBT.Width
+  Me.Y = FMain.Y + FMain.FindBT.Y
+  Findlist.Clear
+  newload_Pokelist()
+  savelist = Pokelist.Copy()
+
+End
+
+Public Sub search_KeyRelease()
+
+  Pokelist = savelist.Copy()
+  If search.Text Not Null Then
+
+    Pokelist = CFind.findPoke(Pokelist, search.Text)
+
+    Pokelist = CFind.RemoveDuplicates(Pokelist)
+    umlesen()
+  Catch
+  Endif
+  If search.Text == Chr(8)
+    Print True
+  Endif
+
+End
+
+Static Private Sub umlesen()
+
+  Dim s As String
+
+  Me.Findlist.Clear()
+  If Pokelist Not Null Then
+    For Each s In Pokelist
+
+      Me.Findlist.Add(s)
+
+    Next
+  Endif
+
+End
+
+Public Sub Reload_Click()
+
+  search.Clear
+  Form_Open
+
+End
+
+Public Sub search_KeyPress()
+
+End
+
+Public Sub Findlist_DblClick()
+
+  FMain.Pokemonname.Text = Findlist.Current.Text
+  FMain.PokemonNummber.Value = savelist.Find(Findlist.Current.Text) + 1
+  FMain.Aktualisieren_Click()
+  Me.Close
+
+End
+
+Static Private Sub newload_Pokelist()
+
+  Dim sLine As String
+
+  Pokelist.Clear
+  savelist.Clear
+
+  For Each FMain.CurrendLang
+    sLine = FMain.CurrendLang["Name"]
+    Pokelist.Add(sLine)
+    Me.Findlist.Add(sLine)
+  Next
+
+End

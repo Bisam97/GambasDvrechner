@@ -1,0 +1,151 @@
+' Gambas class file
+
+Static Public Sub Berechnug_ZurueckgebenDV(pokemon As Integer)
+
+  Dim Staus As New Float[]
+  Dim EV As New Float[]
+  Dim Wesen As New Float[]
+  Dim Level As Float
+  Dim Base As New Float[]
+  Dim DV As New Float[]
+
+  If FMain.StatKP.Text = "0" Then
+    Staus.Remove(1, 1)
+  Endif
+
+  Staus.Add(CFloat(FMain.StatKP.Text), 0)
+  Staus.Add(CFloat(FMain.StatAng.Text), 1)
+  Staus.Add(CFloat(FMain.StatDef.Text), 2)
+  Staus.Add(CFloat(FMain.StatSang.Text), 3)
+  Staus.Add(CFloat(FMain.StatSDef.Text), 4)
+  Staus.Add(CFloat(FMain.StatInit.Text), 5)
+
+  EV.Add(CFloat(FMain.EVKP.Text), 0)
+  EV.Add(CFloat(FMain.EVAng.Text), 1)
+  EV.Add(CFloat(FMain.EVDef.Text), 2)
+  EV.Add(CFloat(FMain.EVSang.Text), 3)
+  EV.Add(CFloat(FMain.EVSDef.Text), 4)
+  EV.Add(CFloat(FMain.EVInit.Text), 5)
+
+  Level = FMain.Level.Value
+
+  Wesen = CWesen.WesenCheckSet(FMain.Wesen.Index)
+
+  ' Print Wesen[]
+  Print Staus[0]
+  Print EV[0]
+  Print Level
+
+  Base = CAuslesen.BaseReadData(pokemon)
+
+  DV = Berechnug_Main_DV(Base, Staus, EV, Wesen, Level)
+
+  Intervall_DV(DV, Level)
+
+Catch
+
+  Print ("Abgebrochen")
+  Message.Info(("Abgebrochen \nBitte Statuswerte eintragen :)"))
+
+End
+
+Static Sub Berechnug_Main_DV(Base As Float[], Status As Float[], EV As Float[], Wesen As Float[], Level As Float) As Float[]
+
+  Dim DV As New Float[]
+  Dim temp_DV As Float
+
+  ''ANG
+  temp_DV = (Status[1] / Wesen[0] - 5) * 100 / Level - 2 * Base[1] - EV[1] / 4
+  Print temp_DV
+  DV.Add(temp_DV, 1)
+
+  ''DEF
+  temp_DV = (Status[2] / Wesen[1] - 5) * 100 / Level - 2 * Base[2] - EV[2] / 4
+  Print temp_DV
+  DV.Add(temp_DV, 2)
+
+  ''SANG
+  temp_DV = (Status[3] / Wesen[2] - 5) * 100 / Level - 2 * Base[3] - EV[3] / 4
+  Print temp_DV
+  DV.Add(temp_DV, 3)
+
+  ''SDEF
+  temp_DV = (Status[4] / Wesen[3] - 5) * 100 / Level - 2 * Base[4] - EV[4] / 4
+  Print temp_DV
+  DV.Add(temp_DV, 4)
+
+  ''INIT
+  temp_DV = (Status[5] / Wesen[4] - 5) * 100 / Level - 2 * Base[5] - EV[5] / 4
+  Print temp_DV
+  DV.Add(temp_DV, 5)
+
+  ''KP
+  temp_DV = (Status[0] - Level - 10) * 100 / Level - 2 * Base[0] - EV[0] / 4
+  Print temp_DV
+  DV.Add(temp_DV, 0)
+
+  Return DV
+
+End
+
+Static Public Sub Intervall_DV(DV As Float[], Level As Integer)
+
+  Dim Ivall As Float
+  Dim DV_max As New Float[Dv.Length]
+  Dim DV_min As New Float[DV.Length]
+
+  DV_max = DV.Copy()
+  DV_min = DV.Copy()
+
+  Ivall = 100 / Level
+  If Ivall < 1.1 Then
+    CEintragen.DVeintragen(DV)
+  Else
+
+    While Ivall > 1.1
+      DV_max[1] += 1.0
+      DV_max[2] += 1.0
+      DV_max[3] += 1.0
+      DV_max[4] += 1.0
+      DV_max[5] += 1.0
+      DV_max[0] += 1.0
+      Ivall -= 1.0
+      Print Ivall
+      printDV(DV_min, DV_max)
+      If Ivall < 1.1 Then
+        Break
+      Endif
+      DV_min[1] -= 1.0
+      DV_min[2] -= 1.0
+      DV_min[3] -= 1.0
+      DV_min[4] -= 1.0
+      DV_min[5] -= 1.0
+      DV_min[0] -= 1.0
+
+      Ivall -= 1.0
+      Print Ivall
+      printDV(DV_min, DV_max)
+    Wend
+    CEintragen.IvallDVeintragen(DV_min, DV_max)
+  Endif
+
+End
+
+Static Private Sub printDV(DV_min As Float[], DV_max As Float[])
+
+  Print "- - - - - - - - - - - - - - - - - DV - min - - - - - - - - - - - - - - - - - - - "
+  Print DV_min[1]
+  Print DV_min[2]
+  Print DV_min[3]
+  Print DV_min[4]
+  Print DV_min[5]
+  Print DV_min[0]
+  Print "- - - - - - - - - - - - - - - - - DV - max - - - - - - - - - - - - - - - - - - - "
+  Print DV_max[1]
+  Print DV_max[2]
+  Print DV_max[3]
+  Print DV_max[4]
+  Print DV_max[5]
+  Print DV_max[0]
+
+End

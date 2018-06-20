@@ -1,0 +1,16 @@
+FOpenfirst
+DV_Rechner
+0
+0
+2.3.1
+
+gb.image
+gb.gui
+gb.form
+gb.db
+gb.db.sqlite3
+gb.settings
+gb.image.effect
+gb.sdl.sound
+gb.vb
+

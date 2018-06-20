@@ -1,0 +1,208 @@
+' Gambas class file
+
+savenumber As String
+Public DELang As Result
+Public ENGLang As Result
+Public JPLang As Result
+Public CurrendLang As Result
+Public PokemonData As Result
+
+Public Sub _new()
+
+End
+
+Private Sub Form_Menu()
+
+  Extras = New Menu(FMain, False)
+
+End
+
+Public Sub Form_Open()
+
+  Me.Center
+  MSQLite.OpenConation_StartUp()
+  load_SQL()
+  Wesen.ReadOnly = True
+  MovieBox1.Playing = True
+  M.Visible = False
+  S.Visible = False
+  L.Visible = False
+  XL.Visible = False
+
+End
+
+Private Sub load_SQL()
+
+  PokemonData = MSQLite.Read("PokemonData", " ORDER BY Nummer")
+  DELang = MSQLite.Read("PokemonGER", "")
+  JPLang = MSQLite.Read("PokemonJP", "")
+  ENGLang = MSQLite.Read("PokemonENG", "")
+  CurrendLang = DELang
+
+End
+
+Public Sub Check_click()
+
+  Dim x As Integer
+
+  If CInteger(EVKP.Text) + CInteger(EVANG.Text) + CInteger(EVDEF.Text) + CInteger(EVSANG.Text) + CInteger(EVSDEF.Text) + CInteger(EVInit.Text) > 510 Then
+
+    While CInteger(EVKP.Text) + CInteger(EVANG.Text) + CInteger(EVDEF.Text) + CInteger(EVSANG.Text) + CInteger(EVSDEF.Text) + CInteger(EVInit.Text) > 510
+      x = CInteger(EVKP.Text)
+      x = x - 1
+      EVKP.text = x
+      If x < 0 Then
+        x = 0
+        EVKP.text = x
+        Break
+      Endif
+    Wend
+
+    While CInteger(EVKP.Text) + CInteger(EVANG.Text) + CInteger(EVDEF.Text) + CInteger(EVSANG.Text) + CInteger(EVSDEF.Text) + CInteger(EVInit.Text) > 510
+      x = CInteger(EVANG.Text)
+      x = x - 1
+      EVANG.text = x
+      If x < 0 Then
+        x = 0
+        EVANG.text = x
+        Break
+      Endif
+    Wend
+
+    While CInteger(EVKP.Text) + CInteger(EVANG.Text) + CInteger(EVDEF.Text) + CInteger(EVSANG.Text) + CInteger(EVSDEF.Text) + CInteger(EVInit.Text) > 510
+      x = CInteger(EVDEF.Text)
+      x = x - 1
+      EVDEF.text = x
+      If x < 0 Then
+        x = 0
+        EVDEF.text = x
+        Break
+      Endif
+    Wend
+    While CInteger(EVANG.Text) + CInteger(EVDEF.Text) + CInteger(EVSANG.Text) + CInteger(EVSDEF.Text) + CInteger(EVInit.Text) > 510
+      x = CInteger(EVSANG.Text)
+      x = x - 1
+      EVSANG.text = x
+      If x < 0 Then
+        x = 0
+        EVSANG.text = x
+        Break
+      Endif
+    Wend
+
+    While CInteger(EVKP.Text) + CInteger(EVANG.Text) + CInteger(EVDEF.Text) + CInteger(EVSANG.Text) + CInteger(EVSDEF.Text) + CInteger(EVInit.Text) > 510
+      x = CInteger(EVSDEF.Text)
+      x = x - 1
+      EVSDEF.text = x
+      If x < 0 Then
+        x = 0
+        EVSDEF.text = x
+        Break
+      Endif
+    Wend
+
+    While CInteger(EVKP.Text) + CInteger(EVANG.Text) + CInteger(EVDEF.Text) + CInteger(EVSANG.Text) + CInteger(EVSDEF.Text) + CInteger(EVInit.Text) > 510
+      x = CInteger(EVInit.Text)
+      x = x - 1
+      EVInit.text = x
+      If x < 0 Then
+        x = 0
+        EVInit.text = x
+        Break
+      Endif
+    Wend
+  Endif
+
+End
+
+Public Sub Aktualisieren_Click()
+
+  Dim Eng_name As String
+  Dim WesenStat As New Float[]
+
+  If CInteger(PokemonNummber.Text) == 0 Then
+    Message.Error("Bitte Trage eine Pokemon nummer ein um vortzufahren!", "ok")
+  Else If CInteger(PokemonNummber.Text) > CInt(File.Load(User.Home & "/.dv/maxpkm")) Then
+    Message.Error("Es gibt derzeit nur " & CInt(File.Load(User.Home & "/.dv/maxpkm")) & " Pokemon:", " ok :) ")
+    PokemonNummber.Text = savenumber
+  Else
+    WesenStat = CWesen.WesenCheckSet(Wesen.Index)
+
+    Eng_name = CPokemonList.checkPokemonInput(CInteger(PokemonNummber.text))
+    Pokemonname.Text = CPokemonList.Pokemontranslate(CInteger(PokemonNummber.Text))
+    If PokemonNummber.Text = "479" Then
+      FRotom.Show
+    Endif
+    If PokemonNummber.Text = "710" Then
+      If M.Visible = True Then
+
+      Else
+
+        M.Visible = True
+        S.Visible = True
+        L.Visible = True
+        XL.Visible = True
+
+        M.Value = True
+
+      Endif
+    Else If PokemonNummber.Text = "711" Then
+      If M.Visible = True Then
+
+      Else
+        M.Visible = True
+        S.Visible = True
+        L.Visible = True
+        XL.Visible = True
+
+        M.Value = True
+      Endif
+    Else
+      M.Visible = False
+      S.Visible = False
+      L.Visible = False
+      XL.Visible = False
+
+    Endif
+    savenumber = PokemonNummber.Text
+    CWesen.SetStatColor(WesenStat)
+    Berechen.Enabled = True
+    CEintragen.eintragen(CInteger(PokemonNummber.text))
+  Endif
+
+Catch
+  Message.Error(Error.Where & Chr(10) & Error.Text, "ok")
+
+End
+
+Public Sub EVRandom_Click()
+
+  CEintragen.Loschen
+
+End
+
+Public Sub Berechen_Click()
+
+  Aktualisieren_Click()
+  CBerechnug.Berechnug_ZurueckgebenDV(CInteger(PokemonNummber.Text))
+
+End
+
+Public Sub Lang_Click()
+
+  FLang.show
+
+End
+
+Public Sub FindBT_Click()
+
+  FFind.Show
+
+End
+
+Public Sub Form_Close()
+
+  MSQLite.Close()
+  Quit
+
+End
